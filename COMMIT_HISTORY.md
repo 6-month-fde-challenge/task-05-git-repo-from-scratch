@@ -30,16 +30,19 @@ Commits are listed oldest first, the order in which the project was actually bui
 | 6 | `4cb8d9c` | Add calculator entry point wiring all four arithmetic modules | `calculator.py` | The integration point — imports the operands and all four operations and computes the four results. Only possible once commits 2–5 exist. |
 | 7 | `3a9f22f` | Add dashboard that prints the final calculation report | `dashboard.py` | The presentation layer and the program you actually run. Completes the dependency chain from input to output. |
 | 8 | `5250c99` | Clarify dashboard docstring and banner text | modified `dashboard.py` | A deliberate change to an **already tracked** file, so that `git diff` and `git diff --staged` have real before/after content to show. The first commit in the history with deletions as well as insertions. |
-| 9 | `c8e7dbd` | Add README, workflow transcript and commit history evidence | `README.md`, `GIT_WORKFLOW.md`, `COMMIT_HISTORY.md`, `submission_links.txt` | Commits the captured command evidence into the repository itself, so a reviewer who only sees the file snapshot can still verify the workflow and the history. |
-| 10 | `d4b2b48` | Refresh captured git history evidence | updated `README.md`, `COMMIT_HISTORY.md` | Re-runs `git log` after the documentation commit and refreshes the pasted graph so the evidence stays accurate rather than stale. |
+| 9 | `f2d1d4b` | Add README, workflow transcript and commit history evidence | `README.md`, `GIT_WORKFLOW.md`, `COMMIT_HISTORY.md`, `submission_links.txt` | Commits the captured command evidence into the repository itself, so a reviewer who only sees the file snapshot can still verify the workflow and the history. |
+| 10 | *(this commit)* | Refresh captured git history evidence | updated `README.md`, `COMMIT_HISTORY.md` | Re-runs `git log` after the documentation commit and after the push, and refreshes the pasted graph so the evidence stays accurate rather than stale. |
 
 **Count: 10 commits, comfortably more than the required five**, each one a self-contained,
 reviewable unit of work with a descriptive message in the imperative mood.
 
-> Note on the captures below: they were taken immediately after commit 8, which is why
-> the first `git log --stat` listing ends there. The refreshed graph in section 4 is
-> taken after commit 9 and therefore includes it; the only commit that can never appear
-> in a capture stored inside the repository is the very commit that stores it.
+> **Note on the captures below.** The `git log --stat` listing in section 3 was taken
+> immediately after commit 8, which is why it ends there. The graph in section 4 was
+> re-run after commit 9 was made and pushed, so it includes commit 9 and shows
+> `origin/main`. Commit 10 has no SHA printed above for the obvious reason: it is the
+> commit that saves this file, so its own hash does not exist until after the file is
+> written. Run `git log --oneline` on a clone to see it — that is the one line of history
+> a file committed inside the repository can never contain.
 
 ---
 
@@ -153,11 +156,13 @@ branch, and `--decorate` attaches the ref names (`HEAD`, `main`, `origin/main`) 
 commits they point at. The single unbroken column of `*` confirms a clean, linear
 history with no stray branches.
 
-Taken after commit 9, so it includes the documentation commit:
+Taken after commit 9 was made and pushed, so it includes the documentation commit and
+shows `origin/main` alongside the local branch — proof that the local history and the
+published history are the same:
 
 ```console
 $ git log --graph --oneline --all --decorate
-* c8e7dbd (HEAD -> main) Add README, workflow transcript and commit history evidence
+* f2d1d4b (HEAD -> main, origin/main) Add README, workflow transcript and commit history evidence
 * 5250c99 Clarify dashboard docstring and banner text
 * 3a9f22f Add dashboard that prints the final calculation report
 * 4cb8d9c Add calculator entry point wiring all four arithmetic modules

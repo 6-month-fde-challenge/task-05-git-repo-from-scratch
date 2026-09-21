@@ -495,9 +495,12 @@ an automated reviewer may only see a flat snapshot of the files rather than the 
 history, the history is reproduced here and, in full, in
 [`COMMIT_HISTORY.md`](COMMIT_HISTORY.md).
 
+This capture was taken after commit 9 was made and pushed, so it shows `origin/main`
+next to the local branch — the local history and the published history are identical:
+
 ```console
 $ git log --graph --oneline --all --decorate
-* c8e7dbd (HEAD -> main) Add README, workflow transcript and commit history evidence
+* f2d1d4b (HEAD -> main, origin/main) Add README, workflow transcript and commit history evidence
 * 5250c99 Clarify dashboard docstring and banner text
 * 3a9f22f Add dashboard that prints the final calculation report
 * 4cb8d9c Add calculator entry point wiring all four arithmetic modules
@@ -529,10 +532,12 @@ The single unbroken column of `*` confirms a clean, linear history. In build ord
 8. **`5250c99` — Clarify dashboard docstring and banner text.** A deliberate edit to an
    already-tracked file, so `git diff` and `git diff --staged` had real content to
    demonstrate. The first commit with deletions as well as insertions.
-9. **`c8e7dbd` — Add README, workflow transcript and commit history evidence.** Commits
+9. **`f2d1d4b` — Add README, workflow transcript and commit history evidence.** Commits
    the captured command evidence into the repository so it is visible in a file snapshot.
-10. **Refresh captured git history evidence.** Re-runs `git log` after commit 9 and
-    refreshes the pasted graph above so the evidence is accurate rather than stale.
+10. **Refresh captured git history evidence.** Re-runs `git log` after commit 9 was
+    pushed and refreshes the pasted graph above so the evidence is accurate rather than
+    stale. It is the commit that saves this README, so its own SHA cannot appear in it —
+    run `git log --oneline` on a clone to see it. Every earlier commit is listed above.
 
 Each commit is a self-contained, reviewable layer of the project, added in dependency
 order, with a descriptive message in the imperative mood.
