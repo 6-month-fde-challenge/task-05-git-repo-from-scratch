@@ -1,0 +1,12 @@
+Task 5 - Build a Git Repository from Scratch
+
+Repository URL:
+https://github.com/6-month-fde-challenge/task-05-git-repo-from-scratch
+
+Default branch: main
+
+Evidence files on the default branch:
+  README.md           - how to run, project files, every git command with real captured output,
+                        the .gitignore quoted in full with proof it works, and the commit history
+  GIT_WORKFLOW.md     - the complete captured terminal transcript of building the repository
+  COMMIT_HISTORY.md   - the real git log --stat and git log --graph output plus the commit table
