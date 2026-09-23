@@ -200,7 +200,7 @@ The first commit reports `(root-commit)`, because it has no parent:
 
 ```console
 $ git commit -m "Initialise repository with .gitignore and environment template"
-[main (root-commit) b84494c] Initialise repository with .gitignore and environment template
+[main (root-commit) 34d9be4] Initialise repository with .gitignore and environment template
  2 files changed, 24 insertions(+)
  create mode 100644 .env.example
  create mode 100644 .gitignore
@@ -210,7 +210,7 @@ A later commit, showing the branch, the new SHA and the files created:
 
 ```console
 $ git commit -m "Add multiplication and division modules with divide-by-zero guard"
-[main 40399b4] Add multiplication and division modules with divide-by-zero guard
+[main 998d128] Add multiplication and division modules with divide-by-zero guard
  2 files changed, 31 insertions(+)
  create mode 100644 division_module.py
  create mode 100644 multiply_module.py
@@ -221,7 +221,7 @@ is the only one so far with **deletions** as well as insertions:
 
 ```console
 $ git commit -m "Clarify dashboard docstring and banner text"
-[main 5250c99] Clarify dashboard docstring and banner text
+[main 49f1eb1] Clarify dashboard docstring and banner text
  1 file changed, 9 insertions(+), 3 deletions(-)
 ```
 
@@ -232,14 +232,14 @@ what order, and which SHA to point at if you need to go back to a known-good sta
 
 ```console
 $ git log --oneline
-5250c99 Clarify dashboard docstring and banner text
-3a9f22f Add dashboard that prints the final calculation report
-4cb8d9c Add calculator entry point wiring all four arithmetic modules
-40399b4 Add multiplication and division modules with divide-by-zero guard
-01ce93d Add addition and subtraction modules guarded by API key and profile
-b8b6fa5 Add login prompt and profile resolution modules
-5fb47c5 Add environment-based config and user input collection
-b84494c Initialise repository with .gitignore and environment template
+49f1eb1 Clarify dashboard docstring and banner text
+7ec89bc Add dashboard that prints the final calculation report
+8f5dbf0 Add calculator entry point wiring all four arithmetic modules
+998d128 Add multiplication and division modules with divide-by-zero guard
+ac1b3cc Add addition and subtraction modules guarded by API key and profile
+b42c1e7 Add login prompt and profile resolution modules
+f73ab6f Add environment-based config and user input collection
+34d9be4 Initialise repository with .gitignore and environment template
 ```
 
 `git log -1` gives the full detail of a single commit — full 40-character SHA, author and
@@ -247,7 +247,7 @@ timestamp:
 
 ```console
 $ git log -1
-commit 5250c99332eea1cd07c255b3d78ea9bd666fb37a
+commit 49f1eb130c44dc7f2b9a0e8c5797aaf6fdf33ebf
 Author: veerandra7 <veerandra.data@gmail.com>
 Date:   Mon Sep 21 18:24:50 2026 +0530
 
@@ -260,7 +260,7 @@ the two most recent entries; the complete output for every commit is in
 
 ```console
 $ git log --stat
-commit 5250c99332eea1cd07c255b3d78ea9bd666fb37a
+commit 49f1eb130c44dc7f2b9a0e8c5797aaf6fdf33ebf
 Author: veerandra7 <veerandra.data@gmail.com>
 Date:   Mon Sep 21 18:24:50 2026 +0530
 
@@ -269,7 +269,7 @@ Date:   Mon Sep 21 18:24:50 2026 +0530
  dashboard.py | 12 +++++++++---
  1 file changed, 9 insertions(+), 3 deletions(-)
 
-commit 3a9f22f3b8aaeae350a93073a1c40c046732b463
+commit 7ec89bcb5f7079e2961b4a57f6f7ede32436a012
 Author: veerandra7 <veerandra.data@gmail.com>
 Date:   Mon Sep 21 18:24:34 2026 +0530
 
@@ -500,39 +500,39 @@ next to the local branch — the local history and the published history are ide
 
 ```console
 $ git log --graph --oneline --all --decorate
-* f2d1d4b (HEAD -> main, origin/main) Add README, workflow transcript and commit history evidence
-* 5250c99 Clarify dashboard docstring and banner text
-* 3a9f22f Add dashboard that prints the final calculation report
-* 4cb8d9c Add calculator entry point wiring all four arithmetic modules
-* 40399b4 Add multiplication and division modules with divide-by-zero guard
-* 01ce93d Add addition and subtraction modules guarded by API key and profile
-* b8b6fa5 Add login prompt and profile resolution modules
-* 5fb47c5 Add environment-based config and user input collection
-* b84494c Initialise repository with .gitignore and environment template
+* a50764d (HEAD -> main, origin/main) Add README, workflow transcript and commit history evidence
+* 49f1eb1 Clarify dashboard docstring and banner text
+* 7ec89bc Add dashboard that prints the final calculation report
+* 8f5dbf0 Add calculator entry point wiring all four arithmetic modules
+* 998d128 Add multiplication and division modules with divide-by-zero guard
+* ac1b3cc Add addition and subtraction modules guarded by API key and profile
+* b42c1e7 Add login prompt and profile resolution modules
+* f73ab6f Add environment-based config and user input collection
+* 34d9be4 Initialise repository with .gitignore and environment template
 ```
 
 The single unbroken column of `*` confirms a clean, linear history. In build order:
 
-1. **`b84494c` — Initialise repository with .gitignore and environment template.**
+1. **`34d9be4` — Initialise repository with .gitignore and environment template.**
    Establishes the ignore policy before any code exists, and ships the committed
    `.env.example` template.
-2. **`5fb47c5` — Add environment-based config and user input collection.** The
+2. **`f73ab6f` — Add environment-based config and user input collection.** The
    configuration layer: `config.py` reads `API_KEY` from the environment, and
    `input_variables.py` gathers the two operands safely.
-3. **`b8b6fa5` — Add login prompt and profile resolution modules.** The authentication
+3. **`b42c1e7` — Add login prompt and profile resolution modules.** The authentication
    layer, which every arithmetic module depends on.
-4. **`01ce93d` — Add addition and subtraction modules guarded by API key and profile.**
+4. **`ac1b3cc` — Add addition and subtraction modules guarded by API key and profile.**
    First half of the arithmetic layer.
-5. **`40399b4` — Add multiplication and division modules with divide-by-zero guard.**
+5. **`998d128` — Add multiplication and division modules with divide-by-zero guard.**
    Second half, including the zero-denominator check.
-6. **`4cb8d9c` — Add calculator entry point wiring all four arithmetic modules.** The
+6. **`8f5dbf0` — Add calculator entry point wiring all four arithmetic modules.** The
    integration point; only possible once 2–5 exist.
-7. **`3a9f22f` — Add dashboard that prints the final calculation report.** The
+7. **`7ec89bc` — Add dashboard that prints the final calculation report.** The
    presentation layer and the program you run.
-8. **`5250c99` — Clarify dashboard docstring and banner text.** A deliberate edit to an
+8. **`49f1eb1` — Clarify dashboard docstring and banner text.** A deliberate edit to an
    already-tracked file, so `git diff` and `git diff --staged` had real content to
    demonstrate. The first commit with deletions as well as insertions.
-9. **`f2d1d4b` — Add README, workflow transcript and commit history evidence.** Commits
+9. **`a50764d` — Add README, workflow transcript and commit history evidence.** Commits
    the captured command evidence into the repository so it is visible in a file snapshot.
 10. **Refresh captured git history evidence.** Re-runs `git log` after commit 9 was
     pushed and refreshes the pasted graph above so the evidence is accurate rather than

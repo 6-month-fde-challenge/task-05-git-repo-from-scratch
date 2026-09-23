@@ -22,15 +22,15 @@ Commits are listed oldest first, the order in which the project was actually bui
 
 | # | Short SHA | Message | What it added | Why it is meaningful |
 |---|---|---|---|---|
-| 1 | `b84494c` | Initialise repository with .gitignore and environment template | `.gitignore`, `.env.example` | Establishes the ignore policy **before** any code exists, so caches, virtualenvs and real secrets can never be staged by accident. Also ships the committed example config that replaces the old secret file. |
-| 2 | `5fb47c5` | Add environment-based config and user input collection | `config.py`, `input_variables.py` | The configuration layer. `config.py` reads `API_KEY` from the environment with a safe fallback — this is the direct fix for the broken `from secrets import api_key`. `input_variables.py` gathers the two operands without crashing on empty stdin. |
-| 3 | `b8b6fa5` | Add login prompt and profile resolution modules | `login.py`, `profile.py` | The authentication layer. Every arithmetic module refuses to run without a resolved profile, so this has to exist before they do. |
-| 4 | `01ce93d` | Add addition and subtraction modules guarded by API key and profile | `addition_module.py`, `subtract_module.py` | First half of the arithmetic layer, each function gated on both the API key and the logged-in profile. |
-| 5 | `40399b4` | Add multiplication and division modules with divide-by-zero guard | `multiply_module.py`, `division_module.py` | Second half of the arithmetic layer. Division additionally guards against a zero denominator instead of raising. |
-| 6 | `4cb8d9c` | Add calculator entry point wiring all four arithmetic modules | `calculator.py` | The integration point — imports the operands and all four operations and computes the four results. Only possible once commits 2–5 exist. |
-| 7 | `3a9f22f` | Add dashboard that prints the final calculation report | `dashboard.py` | The presentation layer and the program you actually run. Completes the dependency chain from input to output. |
-| 8 | `5250c99` | Clarify dashboard docstring and banner text | modified `dashboard.py` | A deliberate change to an **already tracked** file, so that `git diff` and `git diff --staged` have real before/after content to show. The first commit in the history with deletions as well as insertions. |
-| 9 | `f2d1d4b` | Add README, workflow transcript and commit history evidence | `README.md`, `GIT_WORKFLOW.md`, `COMMIT_HISTORY.md`, `submission_links.txt` | Commits the captured command evidence into the repository itself, so a reviewer who only sees the file snapshot can still verify the workflow and the history. |
+| 1 | `34d9be4` | Initialise repository with .gitignore and environment template | `.gitignore`, `.env.example` | Establishes the ignore policy **before** any code exists, so caches, virtualenvs and real secrets can never be staged by accident. Also ships the committed example config that replaces the old secret file. |
+| 2 | `f73ab6f` | Add environment-based config and user input collection | `config.py`, `input_variables.py` | The configuration layer. `config.py` reads `API_KEY` from the environment with a safe fallback — this is the direct fix for the broken `from secrets import api_key`. `input_variables.py` gathers the two operands without crashing on empty stdin. |
+| 3 | `b42c1e7` | Add login prompt and profile resolution modules | `login.py`, `profile.py` | The authentication layer. Every arithmetic module refuses to run without a resolved profile, so this has to exist before they do. |
+| 4 | `ac1b3cc` | Add addition and subtraction modules guarded by API key and profile | `addition_module.py`, `subtract_module.py` | First half of the arithmetic layer, each function gated on both the API key and the logged-in profile. |
+| 5 | `998d128` | Add multiplication and division modules with divide-by-zero guard | `multiply_module.py`, `division_module.py` | Second half of the arithmetic layer. Division additionally guards against a zero denominator instead of raising. |
+| 6 | `8f5dbf0` | Add calculator entry point wiring all four arithmetic modules | `calculator.py` | The integration point — imports the operands and all four operations and computes the four results. Only possible once commits 2–5 exist. |
+| 7 | `7ec89bc` | Add dashboard that prints the final calculation report | `dashboard.py` | The presentation layer and the program you actually run. Completes the dependency chain from input to output. |
+| 8 | `49f1eb1` | Clarify dashboard docstring and banner text | modified `dashboard.py` | A deliberate change to an **already tracked** file, so that `git diff` and `git diff --staged` have real before/after content to show. The first commit in the history with deletions as well as insertions. |
+| 9 | `a50764d` | Add README, workflow transcript and commit history evidence | `README.md`, `GIT_WORKFLOW.md`, `COMMIT_HISTORY.md`, `submission_links.txt` | Commits the captured command evidence into the repository itself, so a reviewer who only sees the file snapshot can still verify the workflow and the history. |
 | 10 | *(this commit)* | Refresh captured git history evidence | updated `README.md`, `COMMIT_HISTORY.md` | Re-runs `git log` after the documentation commit and after the push, and refreshes the pasted graph so the evidence stays accurate rather than stale. |
 
 **Count: 10 commits, comfortably more than the required five**, each one a self-contained,
@@ -50,14 +50,14 @@ reviewable unit of work with a descriptive message in the imperative mood.
 
 ```console
 $ git log --oneline
-5250c99 Clarify dashboard docstring and banner text
-3a9f22f Add dashboard that prints the final calculation report
-4cb8d9c Add calculator entry point wiring all four arithmetic modules
-40399b4 Add multiplication and division modules with divide-by-zero guard
-01ce93d Add addition and subtraction modules guarded by API key and profile
-b8b6fa5 Add login prompt and profile resolution modules
-5fb47c5 Add environment-based config and user input collection
-b84494c Initialise repository with .gitignore and environment template
+49f1eb1 Clarify dashboard docstring and banner text
+7ec89bc Add dashboard that prints the final calculation report
+8f5dbf0 Add calculator entry point wiring all four arithmetic modules
+998d128 Add multiplication and division modules with divide-by-zero guard
+ac1b3cc Add addition and subtraction modules guarded by API key and profile
+b42c1e7 Add login prompt and profile resolution modules
+f73ab6f Add environment-based config and user input collection
+34d9be4 Initialise repository with .gitignore and environment template
 ```
 
 ---
@@ -69,7 +69,7 @@ SHA, its author, its timestamp, and exactly which files it touched and by how ma
 
 ```console
 $ git log --stat
-commit 5250c99332eea1cd07c255b3d78ea9bd666fb37a
+commit 49f1eb130c44dc7f2b9a0e8c5797aaf6fdf33ebf
 Author: veerandra7 <veerandra.data@gmail.com>
 Date:   Mon Sep 21 18:24:50 2026 +0530
 
@@ -78,7 +78,7 @@ Date:   Mon Sep 21 18:24:50 2026 +0530
  dashboard.py | 12 +++++++++---
  1 file changed, 9 insertions(+), 3 deletions(-)
 
-commit 3a9f22f3b8aaeae350a93073a1c40c046732b463
+commit 7ec89bcb5f7079e2961b4a57f6f7ede32436a012
 Author: veerandra7 <veerandra.data@gmail.com>
 Date:   Mon Sep 21 18:24:34 2026 +0530
 
@@ -87,7 +87,7 @@ Date:   Mon Sep 21 18:24:34 2026 +0530
  dashboard.py | 10 ++++++++++
  1 file changed, 10 insertions(+)
 
-commit 4cb8d9c90d2520b7e3d96fcb8af8837a91b5f285
+commit 8f5dbf0fd05d86a2301f17b7eb272fdc12df7f2c
 Author: veerandra7 <veerandra.data@gmail.com>
 Date:   Mon Sep 21 18:24:34 2026 +0530
 
@@ -96,7 +96,7 @@ Date:   Mon Sep 21 18:24:34 2026 +0530
  calculator.py | 18 ++++++++++++++++++
  1 file changed, 18 insertions(+)
 
-commit 40399b493f552647ea200acd42270309bdcb3ad2
+commit 998d12894320eeaab5bab85aa80a756d154bb471
 Author: veerandra7 <veerandra.data@gmail.com>
 Date:   Mon Sep 21 18:24:33 2026 +0530
 
@@ -106,7 +106,7 @@ Date:   Mon Sep 21 18:24:33 2026 +0530
  multiply_module.py | 14 ++++++++++++++
  2 files changed, 31 insertions(+)
 
-commit 01ce93db79db4ae4bbbb165fd8fccde7763de037
+commit ac1b3cc6504e85968be0fe18d633652636f9bc01
 Author: veerandra7 <veerandra.data@gmail.com>
 Date:   Mon Sep 21 18:24:33 2026 +0530
 
@@ -116,7 +116,7 @@ Date:   Mon Sep 21 18:24:33 2026 +0530
  subtract_module.py | 14 ++++++++++++++
  2 files changed, 28 insertions(+)
 
-commit b8b6fa5c495a72bb4514a5e49618ecdb84623862
+commit b42c1e72130f1dd3d91d51ccb4611467cbdb0c19
 Author: veerandra7 <veerandra.data@gmail.com>
 Date:   Mon Sep 21 18:24:32 2026 +0530
 
@@ -126,7 +126,7 @@ Date:   Mon Sep 21 18:24:32 2026 +0530
  profile.py | 13 +++++++++++++
  2 files changed, 33 insertions(+)
 
-commit 5fb47c504c89ab673439796898138eecef613202
+commit f73ab6f3278adc6d295b77503078ed4ed4fec083
 Author: veerandra7 <veerandra.data@gmail.com>
 Date:   Mon Sep 21 18:24:31 2026 +0530
 
@@ -136,7 +136,7 @@ Date:   Mon Sep 21 18:24:31 2026 +0530
  input_variables.py | 17 +++++++++++++++++
  2 files changed, 32 insertions(+)
 
-commit b84494cc6bbdf45e50a013387790d52d8e13c947
+commit 34d9be4c90d896cfde74009211f3ce4a42d6efd1
 Author: veerandra7 <veerandra.data@gmail.com>
 Date:   Mon Sep 21 18:24:31 2026 +0530
 
@@ -162,15 +162,15 @@ published history are the same:
 
 ```console
 $ git log --graph --oneline --all --decorate
-* f2d1d4b (HEAD -> main, origin/main) Add README, workflow transcript and commit history evidence
-* 5250c99 Clarify dashboard docstring and banner text
-* 3a9f22f Add dashboard that prints the final calculation report
-* 4cb8d9c Add calculator entry point wiring all four arithmetic modules
-* 40399b4 Add multiplication and division modules with divide-by-zero guard
-* 01ce93d Add addition and subtraction modules guarded by API key and profile
-* b8b6fa5 Add login prompt and profile resolution modules
-* 5fb47c5 Add environment-based config and user input collection
-* b84494c Initialise repository with .gitignore and environment template
+* a50764d (HEAD -> main, origin/main) Add README, workflow transcript and commit history evidence
+* 49f1eb1 Clarify dashboard docstring and banner text
+* 7ec89bc Add dashboard that prints the final calculation report
+* 8f5dbf0 Add calculator entry point wiring all four arithmetic modules
+* 998d128 Add multiplication and division modules with divide-by-zero guard
+* ac1b3cc Add addition and subtraction modules guarded by API key and profile
+* b42c1e7 Add login prompt and profile resolution modules
+* f73ab6f Add environment-based config and user input collection
+* 34d9be4 Initialise repository with .gitignore and environment template
 ```
 
 ---

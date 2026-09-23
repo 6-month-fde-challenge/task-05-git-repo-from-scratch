@@ -106,7 +106,7 @@ return to, compare against, or hand to a reviewer.
 
 ```console
 $ git commit -m "Initialise repository with .gitignore and environment template"
-[main (root-commit) b84494c] Initialise repository with .gitignore and environment template
+[main (root-commit) 34d9be4] Initialise repository with .gitignore and environment template
  2 files changed, 24 insertions(+)
  create mode 100644 .env.example
  create mode 100644 .gitignore
@@ -190,7 +190,7 @@ index 0000000..c5d2a21
 
 ```console
 $ git commit -m "Add environment-based config and user input collection"
-[main 5fb47c5] Add environment-based config and user input collection
+[main f73ab6f] Add environment-based config and user input collection
  2 files changed, 32 insertions(+)
  create mode 100644 config.py
  create mode 100644 input_variables.py
@@ -208,7 +208,7 @@ $ git status --short
 $ git add login.py profile.py
 
 $ git commit -m "Add login prompt and profile resolution modules"
-[main b8b6fa5] Add login prompt and profile resolution modules
+[main b42c1e7] Add login prompt and profile resolution modules
  2 files changed, 33 insertions(+)
  create mode 100644 login.py
  create mode 100644 profile.py
@@ -226,7 +226,7 @@ $ git status --short
 $ git add addition_module.py subtract_module.py
 
 $ git commit -m "Add addition and subtraction modules guarded by API key and profile"
-[main 01ce93d] Add addition and subtraction modules guarded by API key and profile
+[main ac1b3cc] Add addition and subtraction modules guarded by API key and profile
  2 files changed, 28 insertions(+)
  create mode 100644 addition_module.py
  create mode 100644 subtract_module.py
@@ -244,7 +244,7 @@ $ git status --short
 $ git add multiply_module.py division_module.py
 
 $ git commit -m "Add multiplication and division modules with divide-by-zero guard"
-[main 40399b4] Add multiplication and division modules with divide-by-zero guard
+[main 998d128] Add multiplication and division modules with divide-by-zero guard
  2 files changed, 31 insertions(+)
  create mode 100644 division_module.py
  create mode 100644 multiply_module.py
@@ -261,7 +261,7 @@ $ git status --short
 $ git add calculator.py
 
 $ git commit -m "Add calculator entry point wiring all four arithmetic modules"
-[main 4cb8d9c] Add calculator entry point wiring all four arithmetic modules
+[main 8f5dbf0] Add calculator entry point wiring all four arithmetic modules
  1 file changed, 18 insertions(+)
  create mode 100644 calculator.py
 ```
@@ -277,7 +277,7 @@ $ git status --short
 $ git add dashboard.py
 
 $ git commit -m "Add dashboard that prints the final calculation report"
-[main 3a9f22f] Add dashboard that prints the final calculation report
+[main 7ec89bc] Add dashboard that prints the final calculation report
  1 file changed, 10 insertions(+)
  create mode 100644 dashboard.py
 ```
@@ -400,7 +400,7 @@ exactly.
 
 ```console
 $ git commit -m "Clarify dashboard docstring and banner text"
-[main 5250c99] Clarify dashboard docstring and banner text
+[main 49f1eb1] Clarify dashboard docstring and banner text
  1 file changed, 9 insertions(+), 3 deletions(-)
 ```
 
@@ -518,21 +518,21 @@ what order, and which SHA to point at if you need to go back to a known-good sta
 
 ```console
 $ git log --oneline
-5250c99 Clarify dashboard docstring and banner text
-3a9f22f Add dashboard that prints the final calculation report
-4cb8d9c Add calculator entry point wiring all four arithmetic modules
-40399b4 Add multiplication and division modules with divide-by-zero guard
-01ce93d Add addition and subtraction modules guarded by API key and profile
-b8b6fa5 Add login prompt and profile resolution modules
-5fb47c5 Add environment-based config and user input collection
-b84494c Initialise repository with .gitignore and environment template
+49f1eb1 Clarify dashboard docstring and banner text
+7ec89bc Add dashboard that prints the final calculation report
+8f5dbf0 Add calculator entry point wiring all four arithmetic modules
+998d128 Add multiplication and division modules with divide-by-zero guard
+ac1b3cc Add addition and subtraction modules guarded by API key and profile
+b42c1e7 Add login prompt and profile resolution modules
+f73ab6f Add environment-based config and user input collection
+34d9be4 Initialise repository with .gitignore and environment template
 ```
 
 ### `git log -1` — full detail for a single commit
 
 ```console
 $ git log -1
-commit 5250c99332eea1cd07c255b3d78ea9bd666fb37a
+commit 49f1eb130c44dc7f2b9a0e8c5797aaf6fdf33ebf
 Author: veerandra7 <veerandra.data@gmail.com>
 Date:   Mon Sep 21 18:24:50 2026 +0530
 
